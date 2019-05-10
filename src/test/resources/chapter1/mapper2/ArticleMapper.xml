@@ -19,12 +19,12 @@
         <result property="type" column="type" typeHandler="xyz.coolblog.mybatis.ArticleTypeHandler"/>
         <result property="content" column="content"/>
         <result property="createTime" column="create_time"/>
-        <association property="author" column="artilce_author_id" javaType="Author" resultMap="authorResult"/>
+        <association property="author" column="article_author_id" javaType="Author" resultMap="authorResult"/>
     </resultMap>
 
     <select id="findOne" resultMap="articleResult">
         SELECT
-            ar.id, ar.author_id AS artilce_author_id, ar.title, ar.type, ar.content, ar.create_time,
+            ar.id, ar.author_id AS article_author_id, ar.title, ar.type, ar.content, ar.create_time,
             au.id AS author_id, au.name, au.age, au.sex, au.email
         FROM
             article ar, author au

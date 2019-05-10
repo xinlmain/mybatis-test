@@ -1,5 +1,6 @@
 package xyz.coolblog.chapter1;
 
+import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
@@ -7,6 +8,8 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Properties;
+
 import org.junit.Test;
 import xyz.coolblog.chapter1.model.Article;
 
@@ -19,8 +22,14 @@ import xyz.coolblog.chapter1.model.Article;
 public class JdbcTest {
 
     @Test
-    public void testJdbc() {
-        String url = "jdbc:mysql://localhost:3306/myblog?user=root&password=1234&useUnicode=true&characterEncoding=UTF8&useSSL=false";
+    public void testJdbc() throws IOException {
+        Properties props = new Properties();
+        props.load(Thread.currentThread().getContextClassLoader().getResourceAsStream("jdbc.properties"));
+        String url = props.getProperty("jdbc.url");
+        url += "&user=" + props.getProperty("jdbc.username");
+        url += "&password=" + props.getProperty("jdbc.password");
+
+        //System.out.println(url);
 
         Connection conn = null;
         try {

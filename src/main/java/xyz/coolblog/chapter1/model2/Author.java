@@ -24,6 +24,7 @@ public class Author implements Serializable {
 
     private List<Article> articles;
 
+
     public Integer getId() {
         return id;
     }

@@ -104,6 +104,41 @@ VALUES
 UNLOCK TABLES;
 
 
+# Dump of table blog_article
+# ------------------------------------------------------------
+
+DROP TABLE IF EXISTS `blog_article`;
+
+CREATE TABLE `blog_article` (
+                              `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+                              `author` varchar(32) NOT NULL,
+                              `title` varchar(32) DEFAULT NULL,
+                              `type` tinyint(4) DEFAULT NULL,
+                              `content` text,
+                              `create_time` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+                              PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+LOCK TABLES `blog_article` WRITE;
+/*!40000 ALTER TABLE `blog_article` DISABLE KEYS */;
+
+INSERT INTO `blog_article` (`id`, `author`, `title`, `type`, `content`, `create_time`)
+VALUES
+(1,'coolblog.xyz','MyBatis 源码分析系列文章导读',8,'MyBatis 源码分析系列文章导读','2018-07-15 15:30:09'),
+(2,'coolblog.xyz','HashMap 源码详细分析(JDK1.8)',1,'HashMap 源码详细分析(JDK1.8)','2018-01-18 15:29:13'),
+(3,'coolblog.xyz','Java CAS 原理分析',1,'Java CAS 原理分析','2018-05-15 15:28:33'),
+(4,'coolblog.xyz','Spring IOC 容器源码分析 - 获取单例 bean',4,'Spring IOC 容器源码分析 - 获取单例 bean','2018-06-01 00:00:00'),
+(5,'coolblog.xyz','Spring IOC 容器源码分析 - 循环依赖的解决办法',4,'Spring IOC 容器源码分析 - 循环依赖的解决办法','2018-06-08 00:00:00'),
+(6,'xin liang','Spring AOP 源码分析系列文章导读',4,'Spring AOP 源码分析系列文章导读','2018-06-17 00:00:00'),
+(7,'coolblog.xyz','Spring AOP 源码分析 - 创建代理对象',4,'Spring AOP 源码分析 - 创建代理对象','2018-06-20 00:00:00'),
+(8,'coolblog.xyz','Spring MVC 原理探秘 - 一个请求的旅行过程',4,'Spring MVC 原理探秘 - 一个请求的旅行过程','2018-06-29 00:00:00'),
+(9,'coolblog.xyz','Spring MVC 原理探秘 - 容器的创建过程',4,'Spring MVC 原理探秘 - 容器的创建过程','2018-06-30 00:00:00'),
+(10,'coolblog.xyz','Spring IOC 容器源码分析系列文章导读',4,'Spring IOC 容器源码分析系列文章导读','2018-05-30 00:00:00');
+
+/*!40000 ALTER TABLE `blog_article` ENABLE KEYS */;
+UNLOCK TABLES;
+
+
 
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;

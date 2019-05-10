@@ -37,7 +37,10 @@ public class MyBatisTest {
             ArticleDao articleDao = session.getMapper(ArticleDao.class);
             List<Article> articles = articleDao.
                 findByAuthorAndCreateTime("coolblog.xyz", "2018-06-10");
-
+            for (Article article : articles) {
+                // 注意，这里的createTime 和 create_time对不上，结果是null哦！
+                System.out.println(article);
+            }
         } finally {
             session.commit();
             session.close();

@@ -24,6 +24,7 @@ public class Article implements Serializable {
 
     private Date createTime;
 
+
     public Integer getId() {
         return id;
     }
